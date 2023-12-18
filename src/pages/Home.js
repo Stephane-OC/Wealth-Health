@@ -1,10 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../App.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import DatePicker from "react-date-picker";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
+import Select from "react-select";
+import { States } from "../components/States";
+
+import "../App.css";
 
 export default function Home() {
-  const saveEmployee = () => {
-  };
+  const saveEmployee = () => {};
+
+  const [birthDate, setBirthDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+
+  const stateOptions = States.map((state) => ({
+    value: state.abbreviation,
+    label: state.name,
+  }));
 
   return (
     <div>
@@ -12,7 +25,7 @@ export default function Home() {
         <h1>HRnet</h1>
       </div>
       <div className="container">
-      <Link to="/employee-list">View Current Employees</Link>
+        <Link to="/employee-list">View Current Employees</Link>
         <h2>Create Employee</h2>
         <form action="#" id="create-employee">
           <label htmlFor="first-name">First Name</label>
@@ -22,10 +35,18 @@ export default function Home() {
           <input type="text" id="last-name" />
 
           <label htmlFor="date-of-birth">Date of Birth</label>
-          <input id="date-of-birth" type="text" />
+          <DatePicker
+            onChange={setBirthDate}
+            value={birthDate}
+            id="date-of-birth"
+          />
 
           <label htmlFor="start-date">Start Date</label>
-          <input id="start-date" type="text" />
+          <DatePicker
+            onChange={setStartDate}
+            value={startDate}
+            id="start-date"
+          />
 
           <fieldset className="address">
             <legend>Address</legend>
@@ -37,7 +58,7 @@ export default function Home() {
             <input id="city" type="text" />
 
             <label htmlFor="state">State</label>
-            <select name="state" id="state"></select>
+            <Select options={stateOptions} name="state" id="state" />
 
             <label htmlFor="zip-code">Zip Code</label>
             <input id="zip-code" type="number" />
