@@ -4,7 +4,7 @@ import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 import Select from "react-select";
 import { useDispatch } from "react-redux";
-import { addEmployee } from "../assets/features/employeeSlice";
+import { addEmployee } from "../features/employeeSlice";
 import { v4 as uuidv4 } from "uuid";
 import { States } from "../components/States";
 import { Options } from "../components/Options";
@@ -37,8 +37,8 @@ export default function SaveEmployeeForm() {
   const [employeeData, setEmployeeData] = React.useState({
     firstName: "",
     lastName: "",
-    dateOfBirth: new Date(),
-    startDate: new Date(),
+    dateOfBirth: "",
+    startDate: "",
     department: "",
     street: "",
     city: "",

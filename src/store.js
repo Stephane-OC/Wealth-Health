@@ -1,14 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
-import employeeReducer from './assets/features/employeeSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import employeeReducer from "./features/employeeSlice";
 
 // Function to load persisted state from localStorage
 const loadFromLocalStorage = () => {
   try {
-    const serializedState = localStorage.getItem('reduxState');
+    const serializedState = localStorage.getItem("reduxState");
     if (serializedState === null) return undefined;
     return JSON.parse(serializedState);
   } catch (e) {
-    console.warn('Failed to load state', e);
+    console.warn("Failed to load state", e);
     return undefined;
   }
 };
@@ -17,9 +17,9 @@ const loadFromLocalStorage = () => {
 const saveToLocalStorage = (state) => {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem('reduxState', serializedState);
+    localStorage.setItem("reduxState", serializedState);
   } catch (e) {
-    console.warn('Failed to save state', e);
+    console.warn("Failed to save state", e);
   }
 };
 

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
-import { mockedEmployees } from '../../data/dataMocked';
+import { mockedEmployees } from '../data/dataMocked';
 
 // Helper function to format dates to string
 const formatDate = (date) => date.toISOString().split('T')[0];
