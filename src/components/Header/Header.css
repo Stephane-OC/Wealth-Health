@@ -1,0 +1,222 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+    font-display: swap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo span {
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+.logo img {
+    width: 50px;
+    height: 47px;
+}
+
+.logo,
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    background-color: var(--color-primary);
+}
+
+.navigation a {
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.navigation h1 {
+    color: #333;
+}
+
+.navigation a,
+.theme-toggle {
+    color: #333;
+    text-decoration: none;
+}
+
+.navigation a:hover,
+.navigation a:focus {
+    color: rgb(5, 117, 11);
+    border-radius: 5px;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title-2 {
+    font-weight: 700;
+}
+
+.theme-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.fa-icon {
+    color: #333;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+}
+
+.mobile-nav-toggle {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 1010;
+    background: var(--mobile-toggle);
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 485px) {
+
+    .header {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 10px;
+        background-color: none;
+        z-index: 1000;
+    }
+
+    .navigation {
+        display: flex;
+        position: fixed;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
+        justify-content: space-around;
+        background-color: var(--color-primary);
+        padding: 0px 0;
+
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .navigation a {
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .navigation a .fa-icon {
+        margin-bottom: 5px;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .navigation.visible {
+        display: flex;
+    }
+
+    .navigation-mobile {
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .navigation-mobile.show {
+        transform: translateY(0);
+    }
+
+    .navigation.show {
+        transform: translateY(0);
+    }
+
+    .mobile-nav-toggle {
+        background-color: var(--color-button);
+        display: block;
+        box-shadow: #1c4146e1 0px 1px 1px 1px;
+        margin-bottom: 5rem;
+        margin-right: -0.4rem
+    }
+
+    .logo,
+    .nav-link,
+    .theme-toggle {
+        margin-bottom: 0.0rem;
+    }
+
+    .logo {
+        width: 3rem;
+        height: 3rem;
+        margin-left: 0rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .logo img {
+        width: 100%;
+    }
+
+    .logo span {
+        font-size: 0.8rem;
+    }
+
+    .title {
+        flex-grow: 0;
+        text-align: center;
+        margin: 0rem;
+    }
+
+    /* Bottom navigation bar */
+    .bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        justify-content: space-around;
+        background-color: var(--color-primary);
+        padding: 10px 0;
+    }
+
+    .bottom-nav .nav-link,
+    .bottom-nav .theme-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    .bottom-nav .fa-icon {
+        margin-bottom: 5px;
+    }
+}

@@ -1,9 +1,55 @@
+:root {
+    /* Light theme colors */
+    --color-primary: #4ecca3;
+    --color-secondary: #2a2e35;
+    --text-color: #333;
+    --background-color: #f9f9f9;
+    --nav-hover-color: #dddddd;
+    --color-button: #4ecca3;
+    --button-text-color: #ffffff;
+    --input-border-color: #cccccc;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-brightness: 90%;
+    --dropdown-bg: #ffffff;
+    --dropdown-text: #333;
+    --dropdown-place-holder: #333;
+}
+
+[data-theme="dark"] {
+    --text-color: #ffffff;
+    --background-color: #333333;
+    --nav-hover-color: #444444;
+    --color-button: #4ecca3;
+    --button-text-color: #000000;
+    --input-border-color: #555555;
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+    --hover-brightness: 110%;
+    --dropdown-bg: #2c2f33;
+    --dropdown-text: #ffffff;
+    --dropdown-place-holder: #ffffff;
+}
+
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-icon {
+    color: var(--text-color);
+    background: none;
+    border: none;
+}
+
 .title {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 
 .container {
     display: flex;
@@ -20,4 +66,20 @@ label {
 
 .address {
     margin-top: 10px;
+}
+
+.title,
+.container,
+label,
+.address {
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+a:hover {
+    color: var(--color-secondary);
 }

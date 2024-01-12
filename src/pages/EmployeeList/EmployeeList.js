@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // CSS imports
@@ -76,26 +75,33 @@ export default function EmployeeList() {
 
   return (
     <div>
-      <div className="search-box-container">
-        <input
-          type="text"
-          onChange={onFilterTextChange}
-          placeholder="Recherche..."
-          className="search-box"
-        />
-      </div>
-      <Suspense fallback={<div>Chargement du tableau...</div>}>
-        <div className="ag-theme-quartz" style={{ height: 400, width: "100%" }}>
-          <AgGridReactLazy
-            onGridReady={onGridReady}
-            columnDefs={columnDefs}
-            rowData={employees}
-            rowSelection="multiple"
-            animateRows={true}
+      <div className="flex-container">
+        <div className="search-box-container">
+          <input
+            type="text"
+            onChange={onFilterTextChange}
+            placeholder="Recherche..."
+            className="search-box"
           />
         </div>
+      </div>
+      <Suspense fallback={<div>Chargement du tableau...</div>}>
+        <div className="flex-container">
+          <div
+            className="ag-theme-quartz"
+            style={{ height: 650, width: "90%" }}
+          >
+            <AgGridReactLazy
+              onGridReady={onGridReady}
+              columnDefs={columnDefs}
+              rowData={employees}
+              rowSelection="multiple"
+              animateRows={true}
+              pagination={true}
+            />
+          </div>
+        </div>
       </Suspense>
-      <Link to="/">Home</Link>
     </div>
   );
 }

@@ -94,7 +94,125 @@ export const mockedEmployees = [
         city: "Miami",
         state: "FL",
         zipCode: "33101"
+      },
+      {
+        id: "9",
+        firstName: "Michael",
+        lastName: "Davis",
+        dateOfBirth: "2000-04-02",
+        startDate: "2017-09-16",
+        department: "Marketing",
+        street: "2468 Michael Harbors Apt. 947",
+        city: "East John",
+        state: "UT",
+        zipCode: "55819"
+      },
+      {
+        id: "10",
+        firstName: "Paul",
+        lastName: "Cox",
+        dateOfBirth: "1990-01-29",
+        startDate: "2018-06-14",
+        department: "Finance",
+        street: "0201 Thompson Gateway",
+        city: "South Hannah",
+        state: "CT",
+        zipCode: "38256"
+      },
+      {
+        id: "11",
+        firstName: "Brittney",
+        lastName: "George",
+        dateOfBirth: "1999-07-31",
+        startDate: "2014-12-13",
+        department: "Engineering",
+        street: "3383 Alan Street",
+        city: "East Brenthaven",
+        state: "MA",
+        zipCode: "18139"
+      },
+      {
+        id: "12",
+        firstName: "Karina",
+        lastName: "Watts",
+        dateOfBirth: "1992-10-07",
+        startDate: "2016-05-10",
+        department: "Finance",
+        street: "7965 Jennifer Spring Suite 501",
+        city: "South Samuel",
+        state: "VT",
+        zipCode: "70399"
+      },
+      {
+        id: "13",
+        firstName: "Joseph",
+        lastName: "Garcia",
+        dateOfBirth: "1987-02-03",
+        startDate: "2019-02-21",
+        department: "Engineering",
+        street: "49575 Lori Cliffs",
+        city: "Chicago",
+        state: "IL",
+        zipCode: "78066"
+      },
+      {
+        id: "14",
+        firstName: "Kevin",
+        lastName: "Chambers",
+        dateOfBirth: "1983-09-04",
+        startDate: "2015-05-13",
+        department: "Marketing",
+        street: "3279 Emily Village Suite 988",
+        city: "San Diego",
+        state: "CA",
+        zipCode: "39612"
+      },
+      {
+        id: "15",
+        firstName: "Rebecca",
+        lastName: "Chaney",
+        dateOfBirth: "1969-05-11",
+        startDate: "2018-07-02",
+        department: "Marketing",
+        street: "606 Garcia Mount",
+        city: "North Autumn",
+        state: "NY",
+        zipCode: "25825"
+      },
+      {
+        id: "16",
+        firstName: "Melissa",
+        lastName: "English",
+        dateOfBirth: "1998-11-27",
+        startDate: "2018-03-30",
+        department: "Marketing",
+        street: "43017 Johnson Skyway Suite 045",
+        city: "Austin",
+        state: "TX",
+        zipCode: "82447"
+      },
+      {
+        id: "17",
+        firstName: "Monica",
+        lastName: "Davis",
+        dateOfBirth: "1985-01-28",
+        startDate: "2023-10-20",
+        department: "Marketing",
+        street: "1929 Raymond Flat Apt. 652",
+        city: "Seattle",
+        state: "WA",
+        zipCode: "85109"
+      },
+      {
+        id: "18",
+        firstName: "Michael",
+        lastName: "Gomez",
+        dateOfBirth: "1965-09-03",
+        startDate: "2023-10-21",
+        department: "IT",
+        street: "931 Drew Forest",
+        city: "Chicago",
+        state: "IL",
+        zipCode: "98344"
       }
-    
   ];
-  
