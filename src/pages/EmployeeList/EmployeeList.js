@@ -132,12 +132,12 @@ export default function EmployeeList() {
           <input
             type="text"
             onChange={onFilterTextChange}
-            placeholder="Recherche..."
+            placeholder="Search..."
             className="search-box"
           />
         </div>
       </div>
-      <Suspense fallback={<div>Chargement du tableau...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <div className="flex-container">
           <div
             className="ag-theme-quartz"

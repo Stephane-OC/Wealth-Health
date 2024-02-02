@@ -12,26 +12,30 @@ import { Options } from "../Options";
 
 import "../SaveEmployeeForm/SaveEmployeeForm.css";
 import Wealth_Health from "../../assets/img/Wealth_Health.webp";
- /* SaveEmployeeForm component is responsible for capturing new employee data from user input. **
- **                                                                                            **
- ** It maintains a local state 'employeeData' that holds form values, including first name,    **
- ** last name, date of birth, start date, department, and address details. State is updated    **
- ** on each input change.                                                                      **
- **                                                                                            **
- ** On form submission, 'saveEmployee' function is called. It prevents default form            **
- ** submission event, constructs a new employee object with a unique ID and formatted date     **
- ** strings, dispatches 'addEmployee' action to store, and resets form fields.                 **
- **                                                                                            **
- ** Component uses 'react-select' for department and state selection, which allows for a       **
- ** richer dropdown experience compared to native select elements.                             **
- **                                                                                            **
- ** Component also uses 'react-date-picker' for a user-friendly date picking interface.        **
- **                                                                                            **
- ** State and department options are derived from States and Options data respectively,        **
- ** with 'map' functions transforming them into a format 'react-select' can utilize.           **
- **                                                                                            **
- ** After an employee is added, form's state is reset to empty values to allow for             **
- ** entering next employee's data. This ensures a fresh form for each submission.              */
+/* SaveEmployeeForm component captures new employee data from user input and    **
+** handles form submission to add new employees to store.                       **
+**                                                                              **
+** Utilizes local state 'employeeData' to manage form inputs including          **
+**   personal details, department, and address.                                 **
+**                                                                              **
+** Employs 'react-select' for enhanced department and state dropdowns and       **
+**   'react-date-picker' for a user-friendly date selection interface.          **
+**                                                                              **
+** Validates required fields on form submission and uses 'uuid' to assign       **
+**   unique IDs to new employees.                                               **
+**                                                                              **
+** On successful submission:                                                    **
+**   - Dispatches 'addEmployee' action to add a new employee to global store.   **
+**   - Displays a success message in a modal.                                   **
+**   - Resets form fields for next entry.                                       **
+**                                                                              **
+** On submission with missing fields:                                           **
+**   - Retains entered data.                                                    **
+**   - Displays an error message in a modal prompting completion of all fields. **
+** Maps States and Options data for 'react-select' options.                     **
+**                                                                              **
+** State and department selections are stored as objects containing 'value' and **           
+** 'label',accommodating format required by 'react-select'.                     */
 
 export default function SaveEmployeeForm() {
   const dispatch = useDispatch();

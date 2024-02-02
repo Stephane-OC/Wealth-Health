@@ -26,7 +26,7 @@
     "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://github.com/Stephane-OC/Wealth-Health",
+  "homepage": "https://Stephane-OC.github.io/Wealth-Health",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
