@@ -34,7 +34,7 @@ import Wealth_Health from "../../assets/img/Wealth_Health.webp";
 **   - Displays an error message in a modal prompting completion of all fields. **
 ** Maps States and Options data for 'react-select' options.                     **
 **                                                                              **
-** State and department selections are stored as objects containing 'value' and **           
+** State and department selections are stored as objects containing 'value' and **
 ** 'label',accommodating format required by 'react-select'.                     */
 
 export default function SaveEmployeeForm() {
@@ -103,7 +103,9 @@ export default function SaveEmployeeForm() {
           : "",
       };
       dispatch(addEmployee(newEmployeeWithId));
-
+      console.log(
+        `Employee Added:\n- First Name: ${employeeData.firstName}\n- Last Name: ${employeeData.lastName}\n- Date of Birth: ${employeeData.dateOfBirth}\n- Start Date: ${employeeData.startDate}\n- Department: ${employeeData.department?.value}\n- Street: ${employeeData.street}\n- City: ${employeeData.city}\n- State: ${employeeData.state?.value}\n- Zip Code: ${employeeData.zipCode}`
+      );
       // Set success message
       setModalMessage(
         `Employee ${employeeData.firstName} ${employeeData.lastName} has been successfully added to the database.`
@@ -122,6 +124,23 @@ export default function SaveEmployeeForm() {
         zipCode: "",
       });
     } else {
+      // Identify missing fields
+      const missingFields = [
+        "firstName",
+        "lastName",
+        "dateOfBirth",
+        "startDate",
+        "department",
+        "street",
+        "city",
+        "state",
+        "zipCode",
+      ]
+        .filter((field) => !employeeData[field])
+        .join(", ");
+      console.error(
+        `Employee could not be added. Missing fields: ${missingFields}`
+      );
       // Set error message
       setModalMessage(
         "Employee could not be added to the database as some fields are missing."

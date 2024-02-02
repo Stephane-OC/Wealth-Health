@@ -11,19 +11,19 @@ const AgGridReactLazy = lazy(() =>
 );
 
 /* EmployeeList component is responsible for displaying a grid of employees.                            **
- ** It uses AG Grid to render employees' data in a tabular format.                                       **
- ** 'useSelector' hook fetches employee data from Redux store state.                                     **
- **                                                                                                      **
- ** AG Grid's column definitions are set to include all relevant details of employees.                   **
- ** Each column header maps to a property of employee objects.                                           **
- ** Grid offers features such as sorting, filtering,                                                     **
- ** and a customizable search box to interact with employee data.                                        **
- **                                                                                                      **
- ** Dynamic importing ('React.lazy') and 'Suspense' are used to lazily load AgGridReact component,       **
- ** thus improving initial page load performance by reducing size of initial bundle.                     **
- ** A 'resize' event handler is added to adjust column sizes on window size changes,                     **
- ** ensuring a responsive layout and enhanced user experience across different devices.                  **
- ** 'gridPreDestroy' event is used for cleanup logic, ensuring proper handling of grid lifecycle events. */
+** It uses AG Grid to render employees' data in a tabular format.                                       **
+** 'useSelector' hook fetches employee data from Redux store state.                                     **
+**                                                                                                      **
+** AG Grid's column definitions are set to include all relevant details of employees.                   **
+** Each column header maps to a property of employee objects.                                           **
+** Grid offers features such as sorting, filtering,                                                     **
+** and a customizable search box to interact with employee data.                                        **
+**                                                                                                      **
+** Dynamic importing ('React.lazy') and 'Suspense' are used to lazily load AgGridReact component,       **
+** thus improving initial page load performance by reducing size of initial bundle.                     **
+** A 'resize' event handler is added to adjust column sizes on window size changes,                     **
+** ensuring a responsive layout and enhanced user experience across different devices.                  **
+** 'gridPreDestroy' event is used for cleanup logic, ensuring proper handling of grid lifecycle events. */
 
 export default function EmployeeList() {
   const employees = useSelector((state) => state.employees.employees);
