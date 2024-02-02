@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Wealth-Health/static/css/main.653b5f77.css",
-    "main.js": "/Wealth-Health/static/js/main.e96cf630.js",
+    "main.js": "/Wealth-Health/static/js/main.5fc40c5a.js",
     "static/js/340.1bbc8d59.chunk.js": "/Wealth-Health/static/js/340.1bbc8d59.chunk.js",
     "static/js/787.baafd8e1.chunk.js": "/Wealth-Health/static/js/787.baafd8e1.chunk.js",
     "static/media/loading_we.webp": "/Wealth-Health/static/media/loading_we.d14ff39eb1478e47925c.webp",
@@ -9,12 +9,12 @@
     "index.html": "/Wealth-Health/index.html",
     "static/media/close.svg": "/Wealth-Health/static/media/close.d8c72963df2ddcc77522c4b74ff00f0f.svg",
     "main.653b5f77.css.map": "/Wealth-Health/static/css/main.653b5f77.css.map",
-    "main.e96cf630.js.map": "/Wealth-Health/static/js/main.e96cf630.js.map",
+    "main.5fc40c5a.js.map": "/Wealth-Health/static/js/main.5fc40c5a.js.map",
     "340.1bbc8d59.chunk.js.map": "/Wealth-Health/static/js/340.1bbc8d59.chunk.js.map",
     "787.baafd8e1.chunk.js.map": "/Wealth-Health/static/js/787.baafd8e1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.653b5f77.css",
-    "static/js/main.e96cf630.js"
+    "static/js/main.5fc40c5a.js"
   ]
 }
