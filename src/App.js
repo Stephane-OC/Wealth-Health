@@ -29,7 +29,10 @@ import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
  **                                                                                       **
  ** useLocation hook is utilized to access current location object, which contains        **
  ** information about current URL. useEffect hook listens for changes to                  **
- ** 'location.pathname', triggering loading logic on every route change.                  */
+ ** 'location.pathname', triggering loading logic on every route change.                  **
+ ** Wildcard route (`<Route path="*" element={<Home />} />`) ensures that any undefined   **
+ ** URL redirects to Home component, enhancing UX by avoiding dead ends and unhandled     **
+ ** routes within the application.                                                        */
 
 function AppWithRouter() {
   const dispatch = useDispatch();
@@ -51,6 +54,7 @@ function AppWithRouter() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/employee-list" element={<EmployeeList />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );
