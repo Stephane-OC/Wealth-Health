@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+![Wealth Health Logo](src/assets/img/Wealth_Health.webp)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Wealth Health - HRnet Application
 
-## Available Scripts
+The HRnet application serves as a comprehensive platform for managing employee records, allowing HR personnel to view, add, and manage employee details with ease.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **View Current Employees**: Enables access to a complete list of employees in a table view with sorting and quick search capabilities.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Create Employee**: Facilitates adding new employees through a detailed form, capturing essential information.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Modern UI Elements**: Integrates the `elaspark-ui` library for responsive, animated modals, and customizable buttons, adding elegance and interactivity.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **`React`**: Builds the user interface.
 
-### `npm run build`
+- **`React-router-dom`**: Manages SPA navigation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **`Redux`**: Handles global state management.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **`AG Grid`**: Renders complex data grids.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **`React-select`** and **`React-date-picker`**: Enhance form inputs.
 
-### `npm run eject`
+- **`UUID`**: Generates unique identifiers.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **`elaspark-ui`**: Provides modern modals and buttons.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Setup and Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To get started with the HRnet application locally:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+npm start
+```
 
-## Learn More
+This command installs all necessary dependencies and launches the application on localhost.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **SaveEmployeeForm :** Renders the form for adding new employees.
 
-### Code Splitting
+- **EmployeeList :** Displays the employee list using `AG Grid`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Dynamic Loading Screen :** Enhances user feedback during navigation and data processing with a custom component.
 
-### Analyzing the Bundle Size
+## State Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Utilizes Redux for application state management, incorporating slices for modular state handling, including a loadingSlice for dynamic loading screen management.
 
-### Making a Progressive Web App
+## Persistent State Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### The application employs advanced techniques for data persistence across user sessions :
 
-### Advanced Configuration
+- **Local Storage Integration :** Saves and retrieves application state in the browser's localStorage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Persistent State Handling :** Serializes and deserializes Redux state to and from localStorage, maintaining state across sessions.
 
-### Deployment
+## Implementation Highlights
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Loading State from LocalStorage :** Initializes state with data from localStorage at startup.
 
-### `npm run build` fails to minify
+- **State Serialization :** Converts Redux state to a string format for storage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **State Deserialization :** Parses the stored string back into JavaScript objects for store rehydration.
+
+- **Automatic Updates :** Saves current state to localStorage in real-time upon store changes.
+
+## Styling
+
+Combines `ag-grid-community` styles with custom CSS for a cohesive look. Integrates `elaspark-ui` for additional modern UI elements.
+
+## `elaspark-ui` documentation
+Elevate your application's user interface with `elaspark-ui`, a library designed for seamless integration and customization of responsive, animated modals and buttons. Discover how to unlock the full potential of your UI and create an engaging user experience by visiting the [official ElaSpark-UI documentation](https://elaspark-ui.dev).

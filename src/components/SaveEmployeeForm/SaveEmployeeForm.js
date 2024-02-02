@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import DatePicker from "react-date-picker";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 import Select from "react-select";
+import { Modal, Button, ButtonContainer } from "easyelamodals";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../features/employeeSlice";
 import { v4 as uuidv4 } from "uuid";
 import { States } from "../States";
 import { Options } from "../Options";
 import "../SaveEmployeeForm/SaveEmployeeForm.css";
-
+import Wealth_Health from "../../assets/img/Wealth_Health.webp";
  /* SaveEmployeeForm component is responsible for capturing new employee data from user input. **
  **                                                                                            **
  ** It maintains a local state 'employeeData' that holds form values, including first name,    **
@@ -34,15 +35,18 @@ import "../SaveEmployeeForm/SaveEmployeeForm.css";
 export default function SaveEmployeeForm() {
   const dispatch = useDispatch();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
   const [employeeData, setEmployeeData] = React.useState({
     firstName: "",
     lastName: "",
     dateOfBirth: "",
     startDate: "",
-    department: "",
+    department: null,
     street: "",
     city: "",
-    state: "",
+    state: null,
     zipCode: "",
   });
 
@@ -61,32 +65,65 @@ export default function SaveEmployeeForm() {
 
   const saveEmployee = (e) => {
     e.preventDefault();
-    const newEmployeeWithId = {
-      ...employeeData,
-      id: uuidv4(),
-      state: employeeData.state ? employeeData.state.value : "",
-      department: employeeData.department ? employeeData.department.value : "",
-      dateOfBirth: employeeData.dateOfBirth
-        ? new Date(employeeData.dateOfBirth).toISOString().split("T")[0]
-        : "",
-      startDate: employeeData.startDate
-        ? new Date(employeeData.startDate).toISOString().split("T")[0]
-        : "",
-    };
-    dispatch(addEmployee(newEmployeeWithId));
 
-    // Resets the fields after saving
-    setEmployeeData({
-      firstName: "",
-      lastName: "",
-      dateOfBirth: "",
-      startDate: "",
-      department: "",
-      street: "",
-      city: "",
-      state: "",
-      zipCode: "",
-    });
+    // Function to check if all required fields are filled
+    const isFormValid = () => {
+      const requiredFields = [
+        "firstName",
+        "lastName",
+        "dateOfBirth",
+        "startDate",
+        "department",
+        "street",
+        "city",
+        "state",
+        "zipCode",
+      ];
+      return requiredFields.every((field) => employeeData[field]);
+    };
+
+    if (isFormValid()) {
+      const newEmployeeWithId = {
+        ...employeeData,
+        id: uuidv4(),
+        state: employeeData.state ? employeeData.state.value : "",
+        department: employeeData.department
+          ? employeeData.department.value
+          : "",
+        dateOfBirth: employeeData.dateOfBirth
+          ? new Date(employeeData.dateOfBirth).toISOString().split("T")[0]
+          : "",
+        startDate: employeeData.startDate
+          ? new Date(employeeData.startDate).toISOString().split("T")[0]
+          : "",
+      };
+      dispatch(addEmployee(newEmployeeWithId));
+
+      // Set success message
+      setModalMessage(
+        `Employee ${employeeData.firstName} ${employeeData.lastName} has been successfully added to the database.`
+      );
+
+      // Resets the fields after saving
+      setEmployeeData({
+        firstName: "",
+        lastName: "",
+        dateOfBirth: "",
+        startDate: "",
+        department: null,
+        street: "",
+        city: "",
+        state: null,
+        zipCode: "",
+      });
+    } else {
+      // Set error message
+      setModalMessage(
+        "Employee could not be added to the database as some fields are missing."
+      );
+    }
+
+    setIsModalOpen(true);
   };
 
   const stateOptions = States.map((state) => ({
@@ -128,6 +165,43 @@ export default function SaveEmployeeForm() {
 
   return (
     <form className="save-employee-form" onSubmit={saveEmployee}>
+      {isModalOpen && (
+        <Modal
+          title={{ text: "Wealth Health", size: "2", align: "center" }}
+          centered
+          logoSrc={Wealth_Health}
+          size="m-m"
+          backdropStyle="dark-opaque"
+          styleType="style-4"
+          animation="fadeIn"
+          borderRadius="br-lg"
+          onClose={() => setIsModalOpen(false)}
+          ariaLabelledBy="modalTitle"
+          showCloseButton={true}
+          closeAlign="right"
+          closeButtonStyleType="btn-1"
+          closeButtonAnimation="pulse"
+          closeButtonBorderStyle="b-b-2"
+        >
+          <h1 paragraph="center" className="t-2 center">
+            {modalMessage.includes("successfully added")
+              ? "Confirmation"
+              : "Error"}
+          </h1>
+          <p className="p-1 center">{modalMessage}</p>
+          <ButtonContainer align="center">
+            <Button
+              size="b-l"
+              styleType="btn-1"
+              animation="scaleUp"
+              borderStyle="b-b-3"
+              onClick={() => setIsModalOpen(false)}
+            >
+              OK
+            </Button>
+          </ButtonContainer>
+        </Modal>
+      )}
       <div className="form-inner">
         <div className="form-group-row">
           <label htmlFor="first-name">First Name</label>
@@ -208,9 +282,6 @@ export default function SaveEmployeeForm() {
                 getOptionLabel={(option) => option.label}
                 getOptionValue={(option) => option.value}
                 onChange={(option) => handleSelectChange(option, "state")}
-                value={stateOptions.find(
-                  (option) => option.value === employeeData.state?.value
-                )}
                 placeholder="Select State"
                 aria-label="State"
               />
@@ -228,7 +299,7 @@ export default function SaveEmployeeForm() {
         </fieldset>
 
         <div className="form-group department">
-          <label id="label-department">Department</label>
+          <label id="label-department">Department</label>departmentOptions
           <div className="react-select-container">
             <Select
               styles={customStyles}
@@ -237,9 +308,6 @@ export default function SaveEmployeeForm() {
               getOptionLabel={(option) => option.label}
               getOptionValue={(option) => option.value}
               onChange={(option) => handleSelectChange(option, "department")}
-              value={departmentOptions.find(
-                (option) => option.value === employeeData.department?.value
-              )}
               placeholder="Select Department"
               aria-label="Department"
             />

@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
-import { mockedEmployees } from '../data/dataMocked';
+import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
+import { mockedEmployees } from "../data/dataMocked";
 
 // Helper function to format dates to string
-const formatDate = (date) => date.toISOString().split('T')[0];
+const formatDate = (date) => date.toISOString().split("T")[0];
 
 // Add a unique ID to each mocked employee if not already present
-const formattedMockedEmployees = mockedEmployees.map(emp => ({
+const formattedMockedEmployees = mockedEmployees.map((emp) => ({
   ...emp,
   id: emp.id || uuidv4(),
 }));
 
 // Create a slice for employees with initial state and reducers
 export const employeeSlice = createSlice({
-  name: 'employee',
+  name: "employee",
   initialState: {
     employees: formattedMockedEmployees,
   },
@@ -28,7 +28,6 @@ export const employeeSlice = createSlice({
       };
       state.employees.push(newEmployee);
     },
-    
   },
 });
 

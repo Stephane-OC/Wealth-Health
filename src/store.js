@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import employeeReducer from "./features/employeeSlice";
+import loadingReducer from "./features/loadingSlice";
 
 // Function to load persisted state from localStorage
 const loadFromLocalStorage = () => {
@@ -30,6 +31,7 @@ const persistedState = loadFromLocalStorage();
 export const store = configureStore({
   reducer: {
     employees: employeeReducer,
+    loading: loadingReducer,
   },
   preloadedState: persistedState,
 });

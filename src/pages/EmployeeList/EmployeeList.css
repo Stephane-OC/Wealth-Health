@@ -28,3 +28,48 @@
     justify-content: center;
     width: 100%;
 }
+
+.ag-theme-quartz {
+    --ag-foreground-color: rgb(126, 46, 132);
+    --ag-background-color: rgb(157, 255, 217);
+    --ag-header-foreground-color: rgb(204, 245, 172);
+    --ag-header-background-color: rgb(3, 104, 107);
+    --ag-odd-row-background-color: rgb(0, 0, 0, 0.03);
+    --ag-header-column-resize-handle-color: rgb(126, 46, 132);
+
+    --ag-font-size: 17px;
+    --ag-font-family: monospace;
+}
+
+/* Styling scrollbar for Chrome, Safari, and Edge */
+.ag-theme-quartz ::-webkit-scrollbar {
+    width: 10px;
+    /* Scrollbar width */
+}
+
+.ag-theme-quartz ::-webkit-scrollbar-track {
+    background: #004d40;
+    /* Dark green background for the track */
+    border-radius: 5px;
+    /* Rounded corners for the track */
+}
+
+.ag-theme-quartz ::-webkit-scrollbar-thumb {
+    background: #26a69a;
+    /* Lighter green for the thumb */
+    border-radius: 5px;
+    /* Rounded corners for the thumb */
+}
+
+.ag-theme-quartz ::-webkit-scrollbar-thumb:hover {
+    background: #00796b;
+    /* Darker green on hover for the thumb */
+}
+
+/* Styling scrollbar for Firefox */
+.ag-theme-quartz {
+    scrollbar-width: thin;
+    /* Sets the scrollbar width for Firefox */
+    scrollbar-color: #26a69a #004d40;
+    /* Thumb and track color in Firefox */
+}

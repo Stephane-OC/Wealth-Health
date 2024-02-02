@@ -18,11 +18,23 @@ form {
     margin-bottom: 1rem;
 }
 
+.modal-logo {
+    width: 15%;
+}
+
+.center {
+    text-align: center;
+}
+
 .form-inner {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
+}
+
+.missing-field {
+    border: 2px solid red;
 }
 
 .address {
