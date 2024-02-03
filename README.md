@@ -74,4 +74,4 @@ Utilizes Redux for application state management, incorporating slices for modula
 Combines `ag-grid-community` styles with custom CSS for a cohesive look. Integrates `elaspark-ui` for additional modern UI elements.
 
 ## `elaspark-ui` documentation
-Elevate your application's user interface with `elaspark-ui`, a library designed for seamless integration and customization of responsive, animated modals and buttons. Discover how to unlock the full potential of your UI and create an engaging user experience by visiting the [official ElaSpark-UI documentation](https://elaspark-ui.dev).
+Elevate your application's user interface with `elaspark-ui`, a library designed for seamless integration and customization of responsive, animated modals and buttons. Discover how to unlock the full potential of your UI and create an engaging user experience by visiting the [official ElaSpark-UI documentation](https://stephane-oc.github.io/ElaSpark-UI-doc).
