@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMoon,
@@ -11,6 +10,7 @@ import {
 import Wealth_Health from "../../assets/img/Wealth_Health.webp";
 import "./Header.css";
 import { loadTheme, toggleTheme } from "../../utils/darkTheme";
+import AppLink from "../AppLink";
 
 /* Header component serves as primary navigation bar for application.        **
  **                                                                           **
@@ -61,26 +61,26 @@ const Header = () => {
       <nav
         className={`navigation ${isMobile && isMobileNavVisible ? "show" : ""}`}
       >
-        <Link to="/" className="logo">
+        <AppLink to="/" className="logo">
           <img src={Wealth_Health} alt="Wealth Health logo" />
           <span>{isMobile ? "WHealth" : "Wealth Health"}</span>
-        </Link>
+        </AppLink>
         <div className="title">
           <h1>HRnet</h1>
         </div>
         {isMobile ? (
-          <Link
+          <AppLink
             to="/employee-list"
             className="nav-link"
             aria-label="Employee list"
           >
             <FontAwesomeIcon icon={faUserGroup} />
             <span className="title-2">Employee</span>
-          </Link>
+          </AppLink>
         ) : (
-          <Link className="title-2" to="/employee-list">
+          <AppLink className="title-2" to="/employee-list">
             View Employees
-          </Link>
+          </AppLink>
         )}
         <button
           aria-label={
