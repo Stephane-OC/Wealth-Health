@@ -1,77 +1,108 @@
-![Wealth Health Logo](src/assets/img/Wealth_Health.webp)
+<div align="center">
+  <img src="src/assets/img/Wealth_Health.webp" alt="Wealth Health logo" width="60" />
+  <h1>Wealth Health - HRnet Application</h1>
+  <p>A modern employee management application built with React and Vite.</p>
+  <p><a href="https://stephane-oc.github.io/Wealth-Health/">View the live application</a></p>
+</div>
 
-# Wealth Health - HRnet Application
+## Overview
 
-The HRnet application serves as a comprehensive platform for managing employee records, allowing HR personnel to view, add, and manage employee details with ease.
+HRnet is an employee record management application designed for Wealth Health. It allows HR personnel to create employee profiles and browse the current employee directory through a responsive and searchable interface.
+
+The project was migrated from Create React App to Vite to provide a faster development environment, a modern build system, and a cleaner dependency tree.
 
 ## Features
 
-- **View Current Employees**: Enables access to a complete list of employees in a table view with sorting and quick search capabilities.
-
-- **Create Employee**: Facilitates adding new employees through a detailed form, capturing essential information.
-
-- **Modern UI Elements**: Integrates the `elaspark-ui` library for responsive, animated modals, and customizable buttons, adding elegance and interactivity.
+- **Employee creation:** Add employees through a detailed form with validated personal, address, and employment information.
+- **Employee directory:** View all registered employees in an interactive AG Grid table.
+- **Search and sorting:** Quickly filter and sort employee records.
+- **Pagination:** Navigate efficiently through larger employee datasets.
+- **Persistent data:** Save and restore Redux state through the browser's `localStorage`.
+- **Dynamic loading screen:** Provide visual feedback during page navigation.
+- **Responsive interface:** Adapt the navigation and application layout to desktop and mobile screens.
+- **Light and dark themes:** Preserve the selected visual theme between sessions.
 
 ## Technologies Used
 
-- **`React`**: Builds the user interface.
+- **React:** Builds the component-based user interface.
+- **Vite:** Provides the development server and production build workflow.
+- **Redux Toolkit and React Redux:** Manage global employee and loading states.
+- **AG Grid:** Displays employee records with sorting, filtering, and pagination.
+- **React Select and React Date Picker:** Provide enhanced form controls.
+- **Font Awesome:** Supplies interface icons.
+- **UUID:** Generates unique employee identifiers.
+- **ElaSpark UI:** Provides responsive, animated modals and customizable buttons.
 
-- **`React-router-dom`**: Manages SPA navigation.
+## Requirements
 
-- **`Redux`**: Handles global state management.
-
-- **`AG Grid`**: Renders complex data grids.
-
-- **`React-select`** and **`React-date-picker`**: Enhance form inputs.
-
-- **`UUID`**: Generates unique identifiers.
-
-- **`elaspark-ui`**: Provides modern modals and buttons.
+- Node.js `20.19.0` or later
+- npm
 
 ## Setup and Installation
 
-To get started with the HRnet application locally:
+Clone the repository and install its dependencies:
 
 ```bash
+git clone https://github.com/Stephane-OC/Wealth-Health.git
+cd Wealth-Health
 npm install
-npm start
 ```
 
-This command installs all necessary dependencies and launches the application on localhost.
+Start the Vite development server:
 
-## Components
+```bash
+npm run dev
+```
 
-- **SaveEmployeeForm :** Renders the form for adding new employees.
+Open the local URL displayed in the terminal.
 
-- **EmployeeList :** Displays the employee list using `AG Grid`.
+## Available Scripts
 
-- **Dynamic Loading Screen :** Enhances user feedback during navigation and data processing with a custom component.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Starts the Vite development server. |
+| `npm start` | Starts the Vite development server using the legacy command alias. |
+| `npm run build` | Creates the optimized production build in `dist` and generates the GitHub Pages fallback. |
+| `npm run preview` | Serves the production build locally for verification. |
+| `npm run deploy` | Builds and deploys the `dist` directory to GitHub Pages. |
 
-## State Management
+## Main Components
 
-Utilizes Redux for application state management, incorporating slices for modular state handling, including a loadingSlice for dynamic loading screen management.
+- **`SaveEmployeeForm`:** Renders the form used to create employee records.
+- **`EmployeeList`:** Displays employee data through AG Grid.
+- **`Header`:** Provides responsive navigation and theme controls.
+- **`LoadingScreen`:** Displays visual feedback during navigation.
+- **`AppLink`:** Handles lightweight client-side navigation without an additional routing dependency.
 
-## Persistent State Management
+## State Management and Persistence
 
-### The application employs advanced techniques for data persistence across user sessions :
+The Redux store combines two feature slices:
 
-- **Local Storage Integration :** Saves and retrieves application state in the browser's localStorage.
+- **`employeeSlice`:** Manages employee records.
+- **`loadingSlice`:** Controls the dynamic loading screen.
 
-- **Persistent State Handling :** Serializes and deserializes Redux state to and from localStorage, maintaining state across sessions.
-
-## Implementation Highlights
-
-- **Loading State from LocalStorage :** Initializes state with data from localStorage at startup.
-
-- **State Serialization :** Converts Redux state to a string format for storage.
-
-- **State Deserialization :** Parses the stored string back into JavaScript objects for store rehydration.
-
-- **Automatic Updates :** Saves current state to localStorage in real-time upon store changes.
+The store is synchronized with `localStorage`. Its state is serialized after each update and rehydrated when the application starts, allowing employee records to persist across browser sessions.
 
 ## Styling
 
-Combines `ag-grid-community` styles with custom CSS for a cohesive look. Integrates `elaspark-ui` for additional modern UI elements.
+The application combines custom CSS with AG Grid community styles and ElaSpark UI components. It includes responsive navigation as well as persistent light and dark themes.
 
-## `elaspark-ui` documentation
-Elevate your application's user interface with `elaspark-ui`, a library designed for seamless integration and customization of responsive, animated modals and buttons. Discover how to unlock the full potential of your UI and create an engaging user experience by visiting the [official ElaSpark-UI documentation](https://stephane-oc.github.io/ElaSpark-UI-doc).
+## Deployment
+
+The application is configured for deployment to GitHub Pages under the `/Wealth-Health/` base path:
+
+```bash
+npm run deploy
+```
+
+The production workflow generates both `index.html` and a matching `404.html` fallback so that direct application links remain available on GitHub Pages.
+
+## Migration and Security
+
+The project was migrated from Create React App to Vite. CRA-specific packages such as `react-scripts` and `web-vitals` were removed, direct dependencies were updated, and the npm lockfile was regenerated.
+
+The migrated production build was validated successfully, and `npm audit` reported zero known vulnerabilities at the time of migration.
+
+## Author
+
+Developed by [Stephane-OC](https://github.com/Stephane-OC).
